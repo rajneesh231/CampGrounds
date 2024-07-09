@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Camp</title>
-</head>
-<body>
-    <h1>Enter the details of a new camp</h1>
-    <form action="/campgrounds" method="POST">
-        <label for="title">Enter Title: </label>
-        <input type="text" name="title" id="title" placeholder="Enter Title">
-        <br>
-        <br>
-        <label for="location">Enter Location: </label>
-        <input type="text" name="location" id="location"placeholder="Enter Location">
-        <br>
-        <button type="submit">submit</button>
-        <a href="/campgrounds">Campgrounds Index</a>
-    </form>
-</body>
-</html>
+<% layout('/layouts/boilerplate') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <h1>Enter the details of a new camp</h1>
+                <form action="/campgrounds" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Enter Title: </label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Enter Location: </label>
+                        <input type="text" class="form-control" name="location" id="location"
+                            placeholder="Enter Location">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="imgURL">Enter URL: </label>
+                        <input type="text" class="form-control" name="imgURL" id="imgURL"
+                            placeholder="Enter URL for image">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="description">Enter description: </label>
+                        <textarea class="form-control" name="description" id="description"placeholder="Enter description of the camp"></textarea>
+                    </div>
+                    <label class="form-label" for="price">Enter Price: </label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" name="price" id="price" aria-label="Amount (to the nearest dollar)">
+                      </div>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                    <a class="btn btn-primary" href="/campgrounds">Campgrounds Index</a>
+                </form>
+            </div>
+        </div>
+    </div>

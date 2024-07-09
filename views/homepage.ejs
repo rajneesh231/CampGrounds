@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        a {
-            border: 1px solid black;
-            margin-left: 10px;
-            padding: 5px;
-        }
-    </style>
-</head>
-
-<body>
+<% layout('/layouts/boilerplate') %>
     <h1>YelpCamp</h1>
     <p>Welcome to the best website to find campgrounds</p>
-    <a href="/campgrounds">Campgrounds Index</a>
-    <a href="/campgrounds/new">New camp</a>
-</body>
-
-</html>
+    <a class="btn btn-primary" href="/campgrounds">Campgrounds Index</a>
+    <a class="btn btn-primary" href="/campgrounds/new">New camp</a>

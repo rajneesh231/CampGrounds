@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= data.title %>
-    </title>
-</head>
-
-<body>
+<% layout('/layouts/boilerplate') %>
     <h1>
         <%= data.title %>
     </h1>
-    <h3>Location -<%= data.location %>
+    <h3>
+        Location -<%= data.location %>
     </h3>
-    <a href="/campgrounds/<%= data._id %>/edit">Edit the details</a>
-    <a href="/campgrounds">Campgrounds Index</a>
-    <form id="f" action="/campgrounds/<%= data._id %>?_method=DELETE" method="post">
-        <button>Delete</button>
-    </form>
-    <!-- <script>
-        const fo = document.querySelector('#f');
-        fo.addEventListener('submit', () => {
-            event.preventDefault(); // Prevent the default form submission
-            console.log(fo.action);
-        })
-    </script> -->
-</body>
+    <div class="row mb-3">
+        <div class="col-6">
+            <img src="<%= data.image %>" class="img w-100" alt="">
+        </div>
+        <div class="col-6">
+            <p>
+                <%= data.description %>
+            </p>
+        </div>
+    </div>
 
-</html>
+    <div class="mb-2">
+        Price - $<%= data.price %>
+    </div>
+    <a class="btn btn-primary" href="/campgrounds/<%= data._id %>/edit">Edit the details</a>
+    <a class="btn btn-primary" href="/campgrounds">Campgrounds Index</a>
+    <form style="display: inline;" action="/campgrounds/<%= data._id %>?_method=DELETE" method="post">
+
+        <button class="btn btn-primary" type="submit">Delete</button>
+        <div class="mb-3"></div>
+    </form>

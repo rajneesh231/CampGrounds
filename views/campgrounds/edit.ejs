@@ -1,28 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= data.title %>
-    </title>
-</head>
-
-<body>
-    <h1>Edit the details of a new camp</h1>
-    <form action="/campgrounds/<%= data._id %>?_method=PUT" method="POST">
-        <label for="title">Enter Title: </label>
-        <input type="text" name="title" id="title" placeholder="Enter Title" value="<%= data.title %>">
-        <br>
-        <br>
-        <label for="location">Enter Location: </label>
-        <!-- <p><%= data.location %></p> -->
-        <input type="text" name="location" id="location" placeholder="Enter Location" value="<%=data.location%>">
-        <br>
-        <button type="submit">submit</button>
-        <a href="/campgrounds">Campgrounds Index</a>
-    </form>
-</body>
-
-</html>
+<% layout('/layouts/boilerplate') %>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1>Edit the details of a new camp</h1>
+            <form action="/campgrounds/<%= data._id %>?_method=PUT" method="POST">
+                <%= data._id %>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Enter Title: </label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title"
+                        value="<%= data.title %>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Enter Location: </label>
+                    <input type="text" class="form-control" name="location" id="location" placeholder="Enter Location"
+                        value="<%=data.location%>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="imgURL">Enter Image URL: </label>
+                    <input type="text" class="form-control" name="imgURL" id="imgURL" placeholder="Enter URL for image"
+                        value="<%=data.image%>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Enter Description: </label>
+                    <textarea rows="7" class="form-control" name="description" id="description" placeholder="Enter description of the camp"  ><%=data.description%></textarea>
+                </div>
+                <label class="form-label" for="price">Enter Price: </label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" name="price" id="price" aria-label="Amount (to the nearest dollar)" value="<%= data.price %>">
+                  </div>
+                <button type="submit" class="btn btn-primary">submit</button>
+                <a class="btn btn-primary" href="/campgrounds">Campgrounds Index</a>
+            </form>
+        </div>
+    </div>
